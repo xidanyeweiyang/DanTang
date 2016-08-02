@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  练习纯手码项目
+//
+//  Created by 刘明 on 16/7/28.
+//  Copyright © 2016年 刘明. All rights reserved.
+//
+
+
+#import "UIView_extra.h"
+#import "NSString+log.h"
+#import "NSString+Base64.h"
+#import "LMNavigationController.h"
+
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+#import <MJRefresh.h>
+
+#define kCofcoIP @"http://10.19.7.177:8080"
+
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height //屏幕高
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width   //屏幕宽
+#define kWindow [UIApplication sharedApplication].keyWindow    //主窗口
+
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r,g,b) RGBA(r,g,b,1.0f)
+
+#define LMGlobalColor RGB(240,240,240)
+#define LMGlobalRedColor RGB(245,80,83)
+#define LMGlobalWhiteColor RGB(255,255,255)
+
+#define  kWeakSelf(object)   __weak typeof(object) weakSelf = object;
+
