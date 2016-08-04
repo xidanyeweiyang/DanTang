@@ -8,6 +8,8 @@
 
 #import "LMDanTangViewController.h"
 #import "LMContentTableViewController.h"
+#import "LMDanTangModel.h"
+
 
 @interface LMDanTangViewController ()<UIScrollViewDelegate>
 
@@ -28,26 +30,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.tittleArray = @[@"精华",@"美食",@"家具",@"数码",@"美物",@"杂货"];
-    
-    
-    // 设置子控制器
-    [self setupChildView];
-    //设置顶部标签栏
-    [self setupTitlesView];
-    // 底部的scrollview
-    [self setupContentView];
-
-    
-  
+ 
+    [self loadTopData];
 }
+
+- (void)loadTopData{
+    
+    kWeakSelf(self);
+    
+    [LMHttpManager loadDanTangTopInfo:^(id response, NSError *error) {
+        
+        weakSelf.tittleArray = response;
+        // 设置子控制器
+        [weakSelf setupChildView];
+        //设置顶部标签栏
+        [weakSelf setupTitlesView];
+        // 底部的scrollview
+        [weakSelf setupContentView];
+        
+    }];
+}
+
 
 - (void)setupChildView{
     
     for (int i = 0; i < self.tittleArray.count; i++) {
         
+        LMDanTangModel *model = self.tittleArray[i];
+        
         
         LMContentTableViewController *contentVC = [[LMContentTableViewController alloc] init];
+        
+        contentVC.title = model.name;
+        
+        contentVC.type = model.id;
         
         [self addChildViewController:contentVC];
         
@@ -129,11 +145,13 @@
     
     for (int i = 0; i < self.tittleArray.count; i++) {
         
+        LMDanTangModel *model = self.tittleArray[i];
+        
         UIButton *btn = [[UIButton alloc] init];
         
         [titleView addSubview:btn];
         
-        [btn setTitle: self.tittleArray[i] forState:UIControlStateNormal];
+        [btn setTitle: model.name forState:UIControlStateNormal];
         
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         
@@ -222,7 +240,8 @@
     
     contentBackView.contentSize = CGSizeMake(kScreenWidth * self.tittleArray.count, 0);
     
-    [self.view insertSubview:contentBackView atIndex:0];
+//    [self.view insertSubview:contentBackView atIndex:0];
+    [self.view addSubview:contentBackView];
     
     [contentBackView mas_makeConstraints:^(MASConstraintMaker *make) {
 

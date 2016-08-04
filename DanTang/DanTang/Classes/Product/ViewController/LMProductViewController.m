@@ -1,31 +1,22 @@
 //
-//  LMBaseViewController.m
-//  练习纯手码项目
+//  LMProductViewController.m
+//  DanTang
 //
-//  Created by 刘明 on 16/8/2.
+//  Created by 刘明 on 16/8/4.
 //  Copyright © 2016年 刘明. All rights reserved.
 //
 
-#import "LMBaseViewController.h"
+#import "LMProductViewController.h"
 
-@interface LMBaseViewController ()
+@interface LMProductViewController ()
 
 @end
 
-@implementation LMBaseViewController
+@implementation LMProductViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    self.view.backgroundColor = LMGlobalColor;
-    
-    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-    [SVProgressHUD setMinimumDismissTimeInterval:1];
-    [SVProgressHUD setBackgroundColor:RGBA(0, 0, 0, 0.5)];
-    [SVProgressHUD setForegroundColor:LMGlobalWhiteColor];
-    
-    self.navigationController.fd_prefersNavigationBarHidden = YES;
-   
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

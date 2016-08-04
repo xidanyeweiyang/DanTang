@@ -10,6 +10,11 @@
 
 @interface LMContentTableViewController : UITableViewController
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, copy) NSString *title;
+
+@property (nonatomic, assign) NSInteger type;
+
+
+
 
 @end

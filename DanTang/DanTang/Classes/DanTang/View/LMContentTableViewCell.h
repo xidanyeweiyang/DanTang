@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LMItems.h"
+
+@class LMContentTableViewCellDeleagte;
+
+@protocol LMContentTableViewCellDeleagte <NSObject>
+
+- (void)didClickDanTangCellFavoritorBtn:(UIButton *)button;
+
+@end
 
 @interface LMContentTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) LMItems *item;
+
+@property (nonatomic, weak) id<LMContentTableViewCellDeleagte> delegate;
+
++ (instancetype)initWithTable:(UITableView *)tableView;
 
 @end

@@ -8,7 +8,13 @@
 
 #import "LMContentTableViewController.h"
 #import "LMContentTableViewCell.h"
-@interface LMContentTableViewController ()
+#import "LMDetailViewController.h"
+#import "LMItems.h"
+#import "LMLoginViewController.h"
+
+@interface LMContentTableViewController ()<LMContentTableViewCellDeleagte>
+
+@property (nonatomic, strong) NSArray *dateArray;
 
 @end
 
@@ -17,29 +23,78 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupTableView];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"LMContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"LMContentTableViewCell"];
+    [LMHttpManager loadDanTangTopInfoWithIndex:self.type finish:^(id response, NSError *error) {
+        
+        self.dateArray = response;
+        
+        [self.tableView reloadData];
+        
+    }];
+    
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupTableView{
+    
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.rowHeight = 160;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
+    
+    [self.tableView registerClass:[LMContentTableViewCell class] forCellReuseIdentifier:@"LMContentTableViewCell"];
+
 }
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 5;
+
+    return self.dateArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LMContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LMContentTableViewCell" forIndexPath:indexPath];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    LMItems *item = self.dateArray[indexPath.row];
+    
+    cell.item = item;
+    
+    cell.delegate = self;
+    
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    LMDetailViewController *detail = [[LMDetailViewController alloc] init];
+    
+    detail.title = @"攻略详情";
+    
+    detail.item = self.dateArray[indexPath.row];
+    
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+- (void)didClickDanTangCellFavoritorBtn:(UIButton *)button{
+    
+    LMLoginViewController *login = [[LMLoginViewController alloc] init];
+    
+    login.title = @"登录";
+    
+    LMNavigationController *nav = [[LMNavigationController alloc] initWithRootViewController:login];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

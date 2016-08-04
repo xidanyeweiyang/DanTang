@@ -8,7 +8,7 @@
 
 #import "LMTabBarVC.h"
 #import "LMDanTangViewController.h"
-#import "LMProductsViewController.h"
+#import "LMProductViewController.h"
 #import "LMMeViewController.h"
 #import "LMClassifyViewController.h"
 
@@ -28,10 +28,12 @@
 
 - (void)setChildVC{
     
+    
     [self addChildTabBarVC:@"LMDanTangViewController" tittle:@"单糖" andImageName:@"TabBar_home_23x23_"];
-    [self addChildTabBarVC:@"LMDanTangViewController" tittle:@"单品" andImageName:@"TabBar_gift_23x23_"];
-    [self addChildTabBarVC:@"LMDanTangViewController" tittle:@"分类" andImageName:@"TabBar_category_23x23_"];
-    [self addChildTabBarVC:@"LMDanTangViewController" tittle:@"我" andImageName:@"TabBar_me_boy_23x23_"];
+    [self addChildTabBarVC:@"LMProductViewController" tittle:@"单品" andImageName:@"TabBar_gift_23x23_"];
+
+    [self addChildTabBarVC:@"LMClassifyViewController" tittle:@"分类" andImageName:@"TabBar_category_23x23_"];
+    [self addChildTabBarVC:@"LMMeViewController" tittle:@"我" andImageName:@"TabBar_me_boy_23x23_"];
 }
 
 - (void)addChildTabBarVC:(NSString *)viewController tittle:(NSString *)tittle andImageName:(NSString *)imageName{

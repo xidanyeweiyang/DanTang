@@ -7,5 +7,7 @@ target ‘DanTang’ do
 	pod 'MBProgressHUD', '~> 0.9.2'
  	pod 'SVProgressHUD', '~> 2.0.3'
  	pod 'MJRefresh', '~> 3.1.10'
+    pod 'FDFullscreenPopGesture', '~> 1.1'
+    pod 'SDWebImage', '~> 3.8.1'
 end
 

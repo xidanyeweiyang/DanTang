@@ -17,7 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UIView *backView = [[UIView alloc] initWithFrame:self.view.bounds];
+    
+    backView.backgroundColor = [UIColor orangeColor];
+    
+    [self.view addSubview:backView];
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
