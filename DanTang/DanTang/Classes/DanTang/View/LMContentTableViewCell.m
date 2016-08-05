@@ -67,7 +67,7 @@
     
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.edges.equalTo(weakSelf.contentView).with.insets(UIEdgeInsetsMake(10, 10, 10, 10));
+        make.edges.equalTo(weakSelf).with.insets(UIEdgeInsetsMake(10, 10, 10, 10));
  
     }];
 

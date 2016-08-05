@@ -264,11 +264,11 @@
     int contentOffset = (int)(scrollView.contentOffset.x / kScreenWidth);
 
     UIViewController *childVC = self.childViewControllers[contentOffset];
-    
-    childVC.view.x = scrollView.contentOffset.x;
-    childVC.view.height = scrollView.height;
-    childVC.view.y = 0;
-    childVC.view.width = kScreenWidth;
+    childVC.view.frame = scrollView.bounds;
+//    childVC.view.x = scrollView.contentOffset.x;
+//    childVC.view.height = scrollView.height;
+//    childVC.view.y = 0;
+//    childVC.view.width = kScreenWidth;
     
     [self.contentBackView addSubview:childVC.view];
     

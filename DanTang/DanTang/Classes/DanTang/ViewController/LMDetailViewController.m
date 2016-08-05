@@ -33,7 +33,8 @@
     
     [webView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.left.right.bottom.equalTo(weakSelf.view);
+//        make.top.left.right.bottom.equalTo(weakSelf.view);
+        make.edges.mas_equalTo(weakSelf.view);
    
     }];
     

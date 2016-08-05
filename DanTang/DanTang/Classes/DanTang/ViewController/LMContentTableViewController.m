@@ -20,26 +20,20 @@
 
 @implementation LMContentTableViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setupTableView];
-    
-    [LMHttpManager loadDanTangTopInfoWithIndex:self.type finish:^(id response, NSError *error) {
+   
         
-        self.dateArray = response;
-        
-        [self.tableView reloadData];
-        
-    }];
-    
-
+    [self.tableView.mj_header beginRefreshing];
 
 }
 
 - (void)setupTableView{
-    
-    
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.rowHeight = 160;
@@ -47,7 +41,40 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
     
     [self.tableView registerClass:[LMContentTableViewCell class] forCellReuseIdentifier:@"LMContentTableViewCell"];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
 
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        
+//        
+//        [LMHttpManager loadDanTangTopInfoWithIndex:self.type finish:^(id response, NSError *error) {
+//            
+//            weakSelf.dateArray = response;
+//            
+//            [weakSelf.tableView reloadData];
+//            
+//            [weakSelf.tableView.mj_header endRefreshing];
+//            
+//        }];
+//    }];
+//    
+//    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+
+}
+
+- (void)refreshData{
+    
+    [LMHttpManager loadDanTangTopInfoWithIndex:self.type finish:^(id response, NSError *error) {
+        
+        self.dateArray = response;
+        
+        [self.tableView reloadData];
+        
+        [self.tableView.mj_header endRefreshing];
+        
+    }];
+
+    
 }
 
 

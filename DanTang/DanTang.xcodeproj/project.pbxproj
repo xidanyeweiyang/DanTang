@@ -10,6 +10,7 @@
 		8A34A8361D51D40100374C90 /* LMDanTangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B96A91D50AD0400F7D2B2 /* LMDanTangViewController.m */; };
 		8A34A8391D51E32900374C90 /* LMContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A34A8381D51E32900374C90 /* LMContentTableViewController.m */; };
 		8A34A83D1D51E35900374C90 /* LMContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A34A83B1D51E35900374C90 /* LMContentTableViewCell.m */; };
+		8A46930A1D54848F00204E6D /* LMProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4693091D54848F00204E6D /* LMProductCollectionViewCell.m */; };
 		8A6B968A1D50ACF600F7D2B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B96891D50ACF600F7D2B2 /* main.m */; };
 		8A6B96981D50ACF600F7D2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6B96961D50ACF600F7D2B2 /* LaunchScreen.storyboard */; };
 		8A6B96D21D50AD0400F7D2B2 /* LMClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B96A41D50AD0300F7D2B2 /* LMClassifyViewController.m */; };
@@ -38,6 +39,8 @@
 		8A34A8381D51E32900374C90 /* LMContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMContentTableViewController.m; sourceTree = "<group>"; };
 		8A34A83A1D51E35900374C90 /* LMContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMContentTableViewCell.h; sourceTree = "<group>"; };
 		8A34A83B1D51E35900374C90 /* LMContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMContentTableViewCell.m; sourceTree = "<group>"; };
+		8A4693081D54848F00204E6D /* LMProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProductCollectionViewCell.h; sourceTree = "<group>"; };
+		8A4693091D54848F00204E6D /* LMProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProductCollectionViewCell.m; sourceTree = "<group>"; };
 		8A6B96851D50ACF600F7D2B2 /* DanTang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanTang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6B96891D50ACF600F7D2B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A6B96971D50ACF600F7D2B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 		8A6B96E61D50B15000F7D2B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A4693081D54848F00204E6D /* LMProductCollectionViewCell.h */,
+				8A4693091D54848F00204E6D /* LMProductCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				8A6B96D81D50AD0400F7D2B2 /* LMNavigationController.m in Sources */,
 				8A34A83D1D51E35900374C90 /* LMContentTableViewCell.m in Sources */,
 				8AF538451D52EBC500A0D55C /* LMItems.m in Sources */,
+				8A46930A1D54848F00204E6D /* LMProductCollectionViewCell.m in Sources */,
 				8A6B96D21D50AD0400F7D2B2 /* LMClassifyViewController.m in Sources */,
 				8AF538391D52D73B00A0D55C /* LMProductViewController.m in Sources */,
 				8A6B96D71D50AD0400F7D2B2 /* LMBaseViewController.m in Sources */,
