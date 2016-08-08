@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LMProduct.h"
 @interface LMProductCollectionViewCell : UICollectionViewCell
 
-
+@property (nonatomic, strong) LMProduct *product;
 //+ (instancetype)initWithCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexpath;
 
 @end

@@ -121,7 +121,10 @@ parameters:(id)parameters
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     
     
+    
     [sessionManager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
         success(responseObject);
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

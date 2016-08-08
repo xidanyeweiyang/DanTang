@@ -8,11 +8,13 @@
 
 #import "LMProductViewController.h"
 #import "LMProductCollectionViewCell.h"
-
+#import "LMProduct.h"
 
 @interface LMProductViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong)  UICollectionView *collectionView;
+
+@property (nonatomic, strong) NSArray *dateArray;
 
 @end
 
@@ -22,8 +24,22 @@
     [super viewDidLoad];
     
     [self setupCollectionView];
+    
+    [self getData];
 }
 
+
+- (void)getData{
+    
+    kWeakSelf(self)
+    
+    [LMHttpManager loadProductInfo:^(id response, NSError *error) {
+       
+        weakSelf.dateArray = response;
+        [weakSelf.collectionView reloadData];
+        
+    }];
+}
 - (void)setupCollectionView {
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -52,14 +68,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10;
+    return self.dateArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LMProductCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LMProductCollectionViewCell" forIndexPath:indexPath];
 //    LMProductCollectionViewCell *cell = [LMProductCollectionViewCell initWithCollectionView:collectionView indexPath:indexPath];
     
-
+    cell.product = self.dateArray[indexPath.row];
     
     return cell;
 }

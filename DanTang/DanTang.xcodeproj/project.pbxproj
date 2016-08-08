@@ -11,6 +11,7 @@
 		8A34A8391D51E32900374C90 /* LMContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A34A8381D51E32900374C90 /* LMContentTableViewController.m */; };
 		8A34A83D1D51E35900374C90 /* LMContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A34A83B1D51E35900374C90 /* LMContentTableViewCell.m */; };
 		8A46930A1D54848F00204E6D /* LMProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4693091D54848F00204E6D /* LMProductCollectionViewCell.m */; };
+		8A46930D1D549A3700204E6D /* LMProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46930C1D549A3700204E6D /* LMProduct.m */; };
 		8A6B968A1D50ACF600F7D2B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B96891D50ACF600F7D2B2 /* main.m */; };
 		8A6B96981D50ACF600F7D2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6B96961D50ACF600F7D2B2 /* LaunchScreen.storyboard */; };
 		8A6B96D21D50AD0400F7D2B2 /* LMClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B96A41D50AD0300F7D2B2 /* LMClassifyViewController.m */; };
@@ -41,6 +42,8 @@
 		8A34A83B1D51E35900374C90 /* LMContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMContentTableViewCell.m; sourceTree = "<group>"; };
 		8A4693081D54848F00204E6D /* LMProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProductCollectionViewCell.h; sourceTree = "<group>"; };
 		8A4693091D54848F00204E6D /* LMProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProductCollectionViewCell.m; sourceTree = "<group>"; };
+		8A46930B1D549A3700204E6D /* LMProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProduct.h; sourceTree = "<group>"; };
+		8A46930C1D549A3700204E6D /* LMProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProduct.m; sourceTree = "<group>"; };
 		8A6B96851D50ACF600F7D2B2 /* DanTang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanTang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6B96891D50ACF600F7D2B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A6B96971D50ACF600F7D2B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				8AF5383E1D52DD4400A0D55C /* LMDanTangModel.m */,
 				8AF538431D52EBC500A0D55C /* LMItems.h */,
 				8AF538441D52EBC500A0D55C /* LMItems.m */,
+				8A46930B1D549A3700204E6D /* LMProduct.h */,
+				8A46930C1D549A3700204E6D /* LMProduct.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				8AF538421D52DDC200A0D55C /* LMHttpManager.m in Sources */,
 				8A6B96DB1D50AD0400F7D2B2 /* LMHttpTool.m in Sources */,
 				8A6B96D81D50AD0400F7D2B2 /* LMNavigationController.m in Sources */,
+				8A46930D1D549A3700204E6D /* LMProduct.m in Sources */,
 				8A34A83D1D51E35900374C90 /* LMContentTableViewCell.m in Sources */,
 				8AF538451D52EBC500A0D55C /* LMItems.m in Sources */,
 				8A46930A1D54848F00204E6D /* LMProductCollectionViewCell.m in Sources */,

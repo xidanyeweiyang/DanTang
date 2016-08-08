@@ -138,11 +138,12 @@
         make.right.equalTo(weakSelf.view).with.offset(-20);
     }];
     
-    UIButton *forgettBtn = [[UIButton alloc] init];
+    UIButton *forgettBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:forgettBtn];
     
     [forgettBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
-    forgettBtn.titleLabel.textColor = [UIColor grayColor];
+//    forgettBtn.titleLabel.textColor = [UIColor grayColor];
+    [forgettBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     forgettBtn.titleLabel.font = [UIFont systemFontOfSize:17];
     [forgettBtn addTarget:self action:@selector(didClickForgetBtn) forControlEvents:UIControlEventTouchUpInside];
  

@@ -8,23 +8,29 @@
 
 #import "LMProductCollectionViewCell.h"
 
+@interface LMProductCollectionViewCell ()
+
+
+@property (nonatomic, strong) UIImageView *pictureView;
+
+@property (nonatomic, strong) UILabel *descLabel;
+
+@property (nonatomic, strong) UILabel *priceLabel;
+
+@property (nonatomic, strong) UIButton *favoriterBtn;
+@end
+
+
 @implementation LMProductCollectionViewCell
 
 
-//+ (instancetype)initWithCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexpath{
-//    
-//    LMProductCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LMProductCollectionViewCell" forIndexPath:indexpath];
-//    
-//    if (!cell) {
-//        
-//        cell = [[LMProductCollectionViewCell alloc] init];
-//        
-//        [cell setupUI];
-//
-//    }
-//    
-//    return cell;
-//}
+
+- (void)setProduct:(LMProduct *)product{
+    
+    _product = product;
+    
+    [self setupData];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
@@ -52,6 +58,7 @@
     kWeakSelf(self)
     
     UIImageView *imageView = [[UIImageView alloc] init];
+    self.pictureView = imageView;
     
     imageView.userInteractionEnabled = YES;
     
@@ -63,15 +70,15 @@
         make.height.mas_offset(@164);
         
     }];
-    
-    
-    imageView.image = [UIImage imageNamed:@"PlaceHolderImage_small_31x26_"];
+
     
     
     
     UILabel *descLabel = [[UILabel alloc] init];
+    self.descLabel = descLabel;
     descLabel.font = [UIFont systemFontOfSize:16];
-    descLabel.text = @"xixiix";
+    
+    descLabel.numberOfLines = 2;
     [self.contentView addSubview:descLabel];
     
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,8 +90,9 @@
     }];
     
     UILabel *priceLabel = [[UILabel alloc] init];
+    self.priceLabel = priceLabel;
     priceLabel.font = [UIFont systemFontOfSize:15];
-    priceLabel.text = @"h打开几个";
+
     priceLabel.textColor = LMGlobalRedColor;
     [self.contentView addSubview:priceLabel];
     
@@ -97,8 +105,8 @@
     
     
     UIButton *favoriterBtn = [[UIButton alloc] init];
-    [favoriterBtn setImage:[UIImage imageNamed:@"Search_GiftBtn_Default_12x10_"] forState:UIControlStateNormal];
-    [favoriterBtn setTitle:@"68" forState:UIControlStateNormal];
+    self.favoriterBtn = favoriterBtn;
+
     [favoriterBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     favoriterBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:favoriterBtn];
@@ -109,6 +117,19 @@
         make.height.centerY.equalTo(priceLabel);
         
     }];
+    
+}
+
+
+- (void)setupData{
+
+    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:self.product.cover_image_url] placeholderImage:[UIImage imageNamed:@"PlaceHolderImage_small_31x26_"]];
+    [self.favoriterBtn setImage:[UIImage imageNamed:@"Search_GiftBtn_Default_12x10_"] forState:UIControlStateNormal];
+    [self.favoriterBtn setTitle:[NSString stringWithFormat:@" %zd ",self.product.favorites_count] forState:UIControlStateNormal];
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",self.product.price];
+    
+    self.descLabel.text = self.product.name;
     
 }
 @end

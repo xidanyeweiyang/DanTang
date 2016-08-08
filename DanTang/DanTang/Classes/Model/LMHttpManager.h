@@ -22,4 +22,9 @@ typedef void(^LMFinishBlock)(id response,NSError *error);
  *  获取首页数据
  */
 + (void)loadDanTangTopInfoWithIndex:(NSInteger)index finish:(LMFinishBlock)finish;
+
+/**
+ *  获取单品数据
+ */
++ (void)loadProductInfo:(LMFinishBlock)finish;
 @end
