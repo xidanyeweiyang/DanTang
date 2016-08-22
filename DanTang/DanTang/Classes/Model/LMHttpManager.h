@@ -27,4 +27,16 @@ typedef void(^LMFinishBlock)(id response,NSError *error);
  *  获取单品数据
  */
 + (void)loadProductInfo:(LMFinishBlock)finish;
+
+/**
+ *  获取单品详细数据
+ */
++ (void)loadProductDetailInfo:(NSInteger)index Finished:(LMFinishBlock)finish;
+
+
+/**
+ *  获取单品详细评论数据
+ */
++ (void)loadProductCommentInfo:(NSInteger)index Finished:(LMFinishBlock)finish;
+
 @end

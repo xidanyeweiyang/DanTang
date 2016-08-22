@@ -23,8 +23,6 @@
 
 @implementation LMProductCollectionViewCell
 
-
-
 - (void)setProduct:(LMProduct *)product{
     
     _product = product;

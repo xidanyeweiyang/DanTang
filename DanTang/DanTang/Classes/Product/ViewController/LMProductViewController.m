@@ -9,7 +9,7 @@
 #import "LMProductViewController.h"
 #import "LMProductCollectionViewCell.h"
 #import "LMProduct.h"
-
+#import "LMProductDetailViewController.h"
 @interface LMProductViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong)  UICollectionView *collectionView;
@@ -78,6 +78,24 @@
     cell.product = self.dateArray[indexPath.row];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    LMProduct *product = self.dateArray[indexPath.row];
+    [LMHttpManager loadProductDetailInfo:product.id Finished:^(id response, NSError *error) {
+        
+        LMProductDetailViewController *productDetailVC = [[LMProductDetailViewController alloc] init];
+        
+        productDetailVC.title = @"商品详情";
+        productDetailVC.Id = product.id;
+        productDetailVC.productDetail = response;
+        
+        [self.navigationController pushViewController:productDetailVC animated:YES];
+    }];
+    
+
+    
 }
 
 

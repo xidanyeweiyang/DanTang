@@ -16,7 +16,7 @@
 @property (nonatomic, assign) NSInteger editor_id;
 @property (nonatomic, assign) NSInteger favorites_count;
 @property (nonatomic, assign) NSInteger id;
-@property (nonatomic, copy) NSString *image_urls;
+@property (nonatomic, strong) NSArray *image_urls;
 @property (nonatomic, assign) BOOL is_favorite;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *price;
